@@ -1,57 +1,139 @@
 <!DOCTYPE html>
 <html lang="uk">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Запрошення на весілля</title>
   <style>
     body {
       margin: 0;
-      font-family: 'Arial', sans-serif;
-      background-color: #fefefe;
-      color: #222;
-      text-align: center;
-      padding: 40px 20px;
+      padding: 0;
+      background-image: url('C:\Users\Acer\Downloads\ChatGPT Image Jun 19, 2025, 03_56_59 PM.png');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      font-family: 'Georgia', serif;
+      color: white;
     }
-    h1 {
-      font-size: 2.5em;
-      margin-bottom: 10px;
+
+    .overlay {
+      background-color: rgba(0, 0, 0, 0.5);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 2em;
     }
-    h2 {
-      font-weight: normal;
-      font-size: 1.3em;
-      color: #666;
-      margin-bottom: 40px;
-    }
-    .block {
+
+    .invitation-box {
+      background-color: rgba(255, 255, 255, 0.1);
+      padding: 2em;
+      border-radius: 20px;
       max-width: 600px;
-      margin: auto;
-      font-size: 1.1em;
-      line-height: 1.6;
+      text-align: center;
+      backdrop-filter: blur(8px);
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
     }
-    .highlight {
+
+    h1 {
+      font-size: 2em;
+      margin-bottom: 0.5em;
+    }
+
+    p {
+      font-size: 1.2em;
+      line-height: 1.6em;
+    }
+
+    #countdown {
+      display: flex;
+      justify-content: center;
+      gap: 1em;
+      margin-top: 1.5em;
+      font-size: 1.4em;
       font-weight: bold;
     }
-    footer {
-      margin-top: 60px;
-      font-size: 0.9em;
-      color: #aaa;
+
+    .timer-part {
+      background: rgba(255, 255, 255, 0.15);
+      padding: 0.5em 1em;
+      border-radius: 12px;
+      min-width: 60px;
+    }
+
+    .timer-label {
+      display: block;
+      font-size: 0.7em;
+      font-weight: normal;
+      margin-top: 0.3em;
     }
   </style>
 </head>
 <body>
 
-  <h1>Руслан & Анна</h1>
-  <h2>запрошують вас на весілля</h2>
+  <!-- 🎵 Музика -->
+  <audio autoplay loop>
+    <source src="https://www.bensound.com/bensound-music/bensound-romantic.mp3" type="audio/mp3">
+    Ваш браузер не підтримує відтворення аудіо.
+  </audio>
 
-  <div class="block">
-    Урочисте святкування відбудеться у <span class="highlight">ресторані "Рудісон"</span><br><br>
-    📅 <em>Дата буде уточнена</em>
+  <div class="overlay">
+    <div class="invitation-box">
+      <h1>Любі друзі та рідні!</h1>
+      <p>Ми, <strong>Руслан і Анна</strong>, з радістю запрошуємо вас розділити з нами найщасливіший день у нашому житті — день нашого весілля!</p>
+      <p>Святкування відбудеться <span style="font-weight: bold;">13 вересня 2025 року</span><br>
+      о <span style="font-weight: bold;">[година]</span><br>
+      за адресою: <span style="font-weight: bold;">[місце проведення]</span>.</p>
+      <p>З нетерпінням чекаємо вас, аби разом створити незабутні спогади ❤️</p>
+
+      <div id="countdown">
+        <div class="timer-part">
+          <span id="days">--</span>
+          <span class="timer-label">днів</span>
+        </div>
+        <div class="timer-part">
+          <span id="hours">--</span>
+          <span class="timer-label">годин</span>
+        </div>
+        <div class="timer-part">
+          <span id="minutes">--</span>
+          <span class="timer-label">хв</span>
+        </div>
+        <div class="timer-part">
+          <span id="seconds">--</span>
+          <span class="timer-label">сек</span>
+        </div>
+      </div>
+
+      <p style="margin-top: 2em;">З любов’ю,<br>Руслан і Анна</p>
+    </div>
   </div>
 
-  <footer>
-    З любов’ю,<br>Руслан та Анна 💛
-  </footer>
+  <script>
+    const weddingDate = new Date("2025-09-13T00:00:00").getTime();
 
+    const updateTimer = () => {
+      const now = new Date().getTime();
+      const distance = weddingDate - now;
+
+      if (distance <= 0) {
+        document.getElementById("countdown").innerHTML = "🎉 День настав!";
+        return;
+      }
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      document.getElementById("days").innerText = days;
+      document.getElementById("hours").innerText = hours;
+      document.getElementById("minutes").innerText = minutes;
+      document.getElementById("seconds").innerText = seconds;
+    };
+
+    setInterval(updateTimer, 1000);
+    updateTimer();
+  </script>
 </body>
-</html># -
+</html>
