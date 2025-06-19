@@ -8,7 +8,7 @@
     body {
       margin: 0;
       padding: 0;
-      background-image: url('"C:\Users\Acer\OneDrive\Робочий стіл\Rus.jpg"');
+      background-image: url('https://i.postimg.cc/Y4cQ7hF8/image.png');
       background-size: cover;
       background-position: center;
       background-attachment: fixed;
@@ -29,14 +29,14 @@
       background-color: rgba(255, 255, 255, 0.1);
       padding: 2em;
       border-radius: 20px;
-      max-width: 600px;
+      max-width: 650px;
       text-align: center;
       backdrop-filter: blur(8px);
       box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
     }
 
     h1 {
-      font-size: 2em;
+      font-size: 2.2em;
       margin-bottom: 0.5em;
     }
 
@@ -74,25 +74,29 @@
   <!-- 🎵 Музика -->
   <audio autoplay loop>
     <source src="https://www.bensound.com/bensound-music/bensound-romantic.mp3" type="audio/mp3">
-
+    Ваш браузер не підтримує аудіо.
   </audio>
 
   <div class="overlay">
     <div class="invitation-box">
       <h1>Любі друзі та рідні!</h1>
       <p>Ми, <strong>Руслан і Анна</strong>, з радістю запрошуємо вас розділити з нами найщасливіший день у нашому житті — день нашого весілля!</p>
-      <p>Святкування відбудеться <span style="font-weight: bold;">13 вересня 2025 року</span><br>
-      о <span style="font-weight: bold;">[година]</span><br>
-      за адресою: <span style="font-weight: bold;">[місце проведення]</span>.</p>
+
+      <p>Шлюб відбудеться <strong>13 вересня 2025 року</strong><br>
+      о <strong>10:00</strong> у церкві <em>«Надставна православна церква»</em>.</p>
+
+      <p>Святкування розпочнеться о <strong>16:00</strong><br>
+      в ресторані <em>«Рудісон»</em>.</p>
+
       <p>З нетерпінням чекаємо вас, аби разом створити незабутні спогади ❤️</p>
 
       <div id="countdown">
         <div class="timer-part">
-          <span id="days">-25-</span>
+          <span id="days">--</span>
           <span class="timer-label">днів</span>
         </div>
         <div class="timer-part">
-          <span id="hours">-25-</span>
+          <span id="hours">--</span>
           <span class="timer-label">годин</span>
         </div>
         <div class="timer-part">
@@ -110,7 +114,7 @@
   </div>
 
   <script>
-    const weddingDate = new Date("2025-09-13T00:00:00").getTime();
+    const weddingDate = new Date("2025-09-13T10:00:00").getTime();
 
     const updateTimer = () => {
       const now = new Date().getTime();
